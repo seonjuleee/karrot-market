@@ -1,0 +1,22 @@
+package com.seonjuleee.karrotmarket.controller;
+
+import com.seonjuleee.karrotmarket.domain.Product;
+import com.seonjuleee.karrotmarket.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+public class ProductController {
+    @Autowired
+    ProductRepository productRepository;
+
+    @CrossOrigin(origins = "*")
+    @GetMapping("/product")
+    public List<Product> getProductList() {
+        return productRepository.findAll();
+    }
+}
